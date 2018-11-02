@@ -263,7 +263,7 @@ func (r *Request) getResponse() (*http.Response, error) {
 	}
 
 	if r.req.Method == "GET" && len(paramBody) > 0 {
-		if strings.Contains(r.url, "?") {
+		if strings.Index(r.url, "?") != -1 {
 			r.url += "&" + paramBody
 		} else {
 			r.url = r.url + "?" + paramBody
